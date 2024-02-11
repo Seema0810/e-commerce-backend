@@ -40,13 +40,20 @@ require("./models/cart_models"); // registering the Cart Model
 //   }
 // }
 
+
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
 
-app.use(cors()); //allow controlled access to resources on a different domain
+app.use(cors({
+  optionsSuccessStatus: 200,
+  origin: process.env.CORS_ORIGIN
+})
+);
+
+// app.use(cors()); //allow controlled access to resources on a different domain
 app.get("/", (req, res) => {
   res.status(200).send("Homepage");
 });
