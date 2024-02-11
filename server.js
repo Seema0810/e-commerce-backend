@@ -27,18 +27,18 @@ require("./models/order_models"); // registering the Order Model
 require("./models/products_models"); // registering the Product Model
 require("./models/cart_models"); // registering the Cart Model
 
-var whitelist = ['http://localhost', 'https://calm-souffle-0f33c9.netlify.app/']
-var corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  }
-}
+// var whitelist = ['http://localhost', 'https://calm-souffle-0f33c9.netlify.app/']
+// var corsOptions = {
+//   origin: function (origin, callback) {
+//     if (whitelist.indexOf(origin) !== -1) {
+//       callback(null, true)
+//     } else {
+//       callback(new Error('Not allowed by CORS'))
+//     }
+//   }
+// }
 
-app.use(cors(corsOptions)); //allow controlled access to resources on a different domain
+// app.use(cors(corsOptions)); //allow controlled access to resources on a different domain
 app.get("/", (req, res) => {
   res.status(200).send("Homepage");
 });
