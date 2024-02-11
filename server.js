@@ -27,7 +27,11 @@ require('./models/order_models')// registering the Order Model
 require('./models/products_models')// registering the Product Model
 require('./models/cart_models')// registering the Cart Model
 
-app.use(cors());             //allow controlled access to resources on a different domain
+app.use(cors());      
+       //allow controlled access to resources on a different domain
+       app.get("/", (req, res) => {
+        res.status(200).send("Homepage");
+      });
 app.use(express.json());
 
 app.use('/uploads', express.static('uploads'));
